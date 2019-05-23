@@ -1,13 +1,20 @@
-Welcome to the pyMotionDetect wiki!
+Welcome to the pyMotionDetect
 
 ### Зависимости: 
 Python 2.7
 
 **OpenCV**
-`sudo apt-get install python-opencv`
+`apt-get install python-opencv`
 
 **Numpy**
 `pip install numpy`
+
+**YAML**  
+`apt-get install python-yaml`  
+
+**argparse**  
+`apt-get install python-argparse`
+
 
 
 ### Запуск
