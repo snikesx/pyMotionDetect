@@ -8,11 +8,14 @@ class Capture:
 	self.cam = cv2.VideoCapture(device)
 
 	try:
-	    self.cam.set(3,config['video']['width'])
-	    self.cam.set(4,config['video']['height'])
+	    width = config['video']['width']
+	    height = config['video']['height']
 	except:
-	    self.cam.set(3,320)
-	    self.cam.set(4,240)
+	    width = 320
+	    height = 240
+
+	self.cam.set(cv2.CAP_PROP_FRAME_WIDTH, width)
+	self.cam.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
 
 	self.config = config
 	self.fcc = cv2.VideoWriter_fourcc(*'XVID')
