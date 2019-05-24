@@ -19,8 +19,15 @@ Python 2.7
 
 ### Запуск
 `python pyMotionDetect.py`  
-`python pyMotionDetect.py -d /dev/video0 -c pyMotionDetec.config`  
+`python pyMotionDetect.py -i /dev/video0 -c pyMotionDetec.config`  
+`python pyMotionDetect.py -d -i /dev/video0 -c pyMotionDetec.config`  
 `./pyMotionDetect`
+
+**arguments:**  
+  -i --input - устровство ввода видео для linux 0 или /dev/video0, для windows - 0  
+  -c --config - применить альтернативный конфиг  
+  -d --deamon - запуск в режиме демона (только для Linux)  
+  
 
 вместо /dev/video0 можно использовать другие камеры или видео файлы
 в некоторых *nix системах для чтения с камеры нужны права, поэтому необходимо запускать приложение с соответствующими параметрами
