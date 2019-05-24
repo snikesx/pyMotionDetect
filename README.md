@@ -21,7 +21,10 @@ Python 2.7
 `python pyMotionDetect.py`  
 `python pyMotionDetect.py -i /dev/video0 -c pyMotionDetec.config`  
 `python pyMotionDetect.py -d -i /dev/video0 -c pyMotionDetec.config`  
-`./pyMotionDetect`
+  
+`./pyMotionDetect`  
+`./pyMotionDetect -d`  
+`./pyMotionDetect -d -i 0`  
 
 **arguments:**  
   -i --input - устровство ввода видео для linux 0 или /dev/video0, для windows - 0  
