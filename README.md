@@ -3,10 +3,10 @@ Welcome to the pyMotionDetect
 ### Зависимости: 
 Python 2.7
 
-**OpenCV**
+**OpenCV**  
 `apt-get install python-opencv`
 
-**Numpy**
+**Numpy**  
 `pip install numpy`
 
 **YAML**  
@@ -18,8 +18,9 @@ Python 2.7
 
 
 ### Запуск
-`python webcam.py`  
-`python webcam.py -d /dev/video0 -c webcam.config`
+`python pyMotionDetect.py`  
+`python pyMotionDetect.py -d /dev/video0 -c pyMotionDetec.config`  
+`./pyMotionDetect`
 
 вместо /dev/video0 можно использовать другие камеры или видео файлы
 в некоторых *nix системах для чтения с камеры нужны права, поэтому необходимо запускать приложение с соответствующими параметрами
