@@ -11,7 +11,7 @@ import service
 #Arguments of cmd
 def argParser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config', default='webcam.conf')
+    parser.add_argument('-c', '--config', default='pyMotionDetect.conf')
     parser.add_argument('-d', '--device', default='/dev/video0')
     return parser.parse_args(sys.argv[1:])
 

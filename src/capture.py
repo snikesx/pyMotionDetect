@@ -16,7 +16,12 @@ class Capture:
 
 	self.config = config
 	self.fcc = cv2.VideoWriter_fourcc(*'XVID')
-	self.max_frame = 5000
+	
+	try:
+	    self.max_frame = config['max_frame_count']
+	except:
+	    self.max_frame = 5000
+
 	self.frame_count = 0
 	self.vid = None
 
@@ -26,6 +31,8 @@ class Capture:
 	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 	return img, gray
 
+    def getFrame(self):
+	return self.frame_count
 
     def compareImage(self, img1, img2):
 	res = cv2.matchTemplate(img1, img2, cv2.TM_CCOEFF_NORMED)
@@ -44,14 +51,14 @@ class Capture:
 	except:
 	    path = ''
 
-	if self.frame_count > self.max_frame or self.vid==None:
+	if self.frame_count >= self.max_frame or self.vid==None:
 	    if self.vid!=None:
 		self.vid.release()
 	    self.frame_count = 0
 
-	    filename = path + time.strftime('%Y-%m-%d_%X')+'.avi'
-	    print(filename)
-	    w,h = frame.shape[:2]
+	    filename = path + time.strftime('%Y%m%d_%H%M')+'.avi'
+	    h,w = frame.shape[:2]
+	    print(filename, w,h)
 	    self.vid = cv2.VideoWriter(filename, self.fcc, 20.0, (w,h))
 	
 	self.frame_count+=1
