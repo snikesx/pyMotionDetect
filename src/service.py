@@ -11,24 +11,25 @@ def Service(device, config):
     try:
 	sensor = config['sensetive']
     except:
-	sensor = 0.991
+	sensor = 0.997
 
     writeCount = 0
     slp = 0.33
     print ('\033[92m'+'webcam is running'+'\033[0m')
     while run:
 	try:
-	    img2, gray2 = cap.getImage()
+	    img, gray2 = cap.getImage()
 	    imgDiff = cap.compareImage(gray1, gray2)
-    
-	    print "\033[K",'cmp:',imgDiff, '\ttm:', slp, '\tsens:', sensor, "\r",
+	    frmNum = cap.getFrame()
+	    print "\033[K",'cmp:',imgDiff, '\ttm:', slp, '\tsens:', sensor, '\tfrm:',frmNum,"\r",
 	    sys.stdout.flush()
 
 	    if imgDiff < sensor or writeCount>0:
 		slp = 0.07
 		if writeCount ==0:
 		    writeCount = 50
-		cap.writeVideo(img2)
+
+		cap.writeVideo(img)
 		writeCount-=1
 	    else:
 		slp = 0.33
